@@ -76,7 +76,7 @@ td:not(:first-child) {
   margin-top:40px;
   padding: 10px;
   box-sizing: border-box;
-  width: calc(100%-100px);
+  //width: calc(100%-100px);
 }
 
 .searchArea input{
