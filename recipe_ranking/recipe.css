@@ -1,0 +1,102 @@
+body{
+    background:gray;
+}
+
+.logo {
+    margin: 0;
+    font-size: 2rem;
+    color: white;
+    position: sticky;
+    background-color: rgba(0, 0, 0, 0.342);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+  }
+  
+  .topmenu{
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin-right:50px;
+    color:black;
+    cursor:pointer;
+}
+
+.category{
+  margin-top: 4%;
+  margin-left: 15%;
+  color: pink;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left:auto;
+  }
+  
+  .nav-links li {
+    margin: 0 20px;
+  }
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  margin-top: -3%;
+  margin-left: 16%;
+  margin-right: 16%;
+
+}
+
+.recipe-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0% auto;
+  margin-top: 100px;
+  width: 20%;
+  height: 15%;
+}
+
+.recipe-cell-first::before {
+  content: '';
+  position: absolute;
+  top: 24%;
+  left: 14.5%;
+  width: 8%;
+  height: 8%;
+  background-image: url('crown1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(-35deg);
+}
+
+.recipe-cell-second::before {
+  content: '';
+  position: absolute;
+  top: 24%;
+  left: 37.1%;
+  width: 8%;
+  height: 8%;
+  background-image: url('crown2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(-35deg);
+}
+
+.recipe-cell-third::before {
+  content: '';
+  position: absolute;
+  top: 24%;
+  left: 59.6%;
+  width: 8%;
+  height: 8%;
+  background-image: url('crown3.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(-35deg);
+}
