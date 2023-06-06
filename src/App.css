@@ -23,6 +23,7 @@ body{
 }
 
 .nav-links {
+  display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -32,6 +33,40 @@ body{
 .nav-links li {
   margin: 0 20px;
 }
+
+.nav-links li:not(:last-child) {
+  margin-right: 50px;
+}
+
+.category-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  list-style: none;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
+}
+
+.category-menu li {
+  margin-bottom: 5px;
+  width: 100%; /* 메뉴 항목 너비 조정 */
+}
+
+.category-menu li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease; /* 배경색 변경 애니메이션 효과 추가 */
+}
+
+.category-menu li a:hover {
+  background-color: #b8b2b2; /* 마우스 호버 시 배경색 변경 */
+}
+
+
+
 
 
 
