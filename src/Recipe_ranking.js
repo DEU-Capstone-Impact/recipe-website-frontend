@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Recipe_ranking.css';
 
 function Ranking_recipe() {
   // 레시피 배열
