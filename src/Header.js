@@ -5,7 +5,7 @@ function Header(props) {
     return (
       <header>
         <div className="logo">
-          <Link className='topmenu' to='Home'><h3>세상에 나쁜 요리는 없다</h3></Link>
+          <Link className='topmenu' to='/'><h3>세상에 나쁜 요리는 없다</h3></Link>
           <ul className="nav-links">
             <Link className='topmenu' to="/recipe-ranking">인기순위</Link>
             <Link className='topmenu' to="#">레시피</Link>

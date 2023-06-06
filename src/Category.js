@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Category(props) {
   return(
     <table className="footer-table">
       <tr>
-        <td><a href="#">한식</a></td>
-        <td><a href="#">중식</a></td>
+        <Link to="/Rpkorea"><img src="korea.jpg" alt="Korea" /></Link>
+        <Link to="/Rpchina"><img src="china.jpg" alt="China" /></Link>
       </tr>
       <tr>
-        <td><a href="#">일식</a></td>
-        <td><a href="#">양식</a></td>
+        <Link to="/Rpjapan"><img src="japan.jpg" alt="Japan" /></Link>
+        <Link to="/Rpwestern"><img src="west.jpg" alt="West" /></Link>
       </tr>
     </table>
   );
