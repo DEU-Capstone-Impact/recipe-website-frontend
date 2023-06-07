@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
 
 const recipeUpload = () => {
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1);
+    };
+
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [title, setTitle] = useState('');
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -23,13 +31,6 @@ const recipeUpload = () => {
         if (selectedFile) {
             const formData = new FormData();
             formData.append('file', selectedFile);
-
-            // 파일 업로드 API 호출
-            // axios 또는 fetch 등을 사용하여 파일을 서버로 전송합니다.
-            // 예시: axios.post('/api/upload', formData);
-
-            // 파일 업로드 완료 후 처리할 로직 추가
-            // 예시: 파일 업로드 성공 메시지 출력, 업로드된 파일 경로 등을 처리합니다.
         }
 
     };
@@ -141,7 +142,7 @@ const recipeUpload = () => {
                 </div>
                 <div className="buttons">
                     <button type="submit">등록</button>
-                    <button type="submit">취소</button>
+                    <button onClick={() => navigate(-1)}>취소</button>
                 </div>
             </form>
         </div>

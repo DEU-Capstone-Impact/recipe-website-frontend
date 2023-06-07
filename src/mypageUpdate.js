@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
 
 const mypageUpdate = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1);
+    };
 
     return (
         <div>
@@ -20,7 +26,7 @@ const mypageUpdate = () => {
                 </div>
                 <br />
                 <button type="submit">수정</button>
-                <button type="submit">취소</button>
+                <button onClick={() => navigate(-1)}>취소</button>
             </form>
         </div>
     );

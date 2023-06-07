@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import {useNavigate} from "react-router-dom";
 
 const recipeView = () => {
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1);
+    };
+
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [recipe, setRecipe] = useState({
         title: '토마토 스파게티',
@@ -19,9 +26,6 @@ const recipeView = () => {
     // let [isValid, setIsValid] = useState(false);
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    let navigate = useNavigate();
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [comments, setComments] = useState([]);
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [newComment, setNewComment] = useState('');
@@ -30,9 +34,6 @@ const recipeView = () => {
         setNewComment(event.target.value);
     };
 
-    // <button onClick={handleEdit}>수정</button>
-    // <button onClick={handleDelete}>삭제</button>
-    // <button onClick={handleBackToList}>목록</button>
     const handleCommentSubmit = (event) => {
         event.preventDefault();
         if (newComment.trim() !== '') {
@@ -68,7 +69,7 @@ const recipeView = () => {
             <div>
                 <button type="submit" onClick={() => {navigate("/recipeUpdate")}}>수정</button>
                 <button type="submit" >삭제</button>
-                <button type="submit" onClick={() => {navigate("/")}}>목록</button>
+                <button type="submit" onClick={() => navigate(-1)}>목록</button>
             </div>
 
             <h3>댓글</h3>

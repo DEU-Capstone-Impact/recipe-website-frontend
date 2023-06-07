@@ -1,88 +1,94 @@
 import React, { useState } from 'react';
 import './loginPage.css';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const loginPage = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    let navigate = useNavigate();
-
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [email, setEmail] = useState('');
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [password, setPassword] = useState('');
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [button, setButton] = useState(true);
-    
-    // 아이디에 '@'가 포함되어 있고, 비밀번호가 5자리 이상일 때 로그인버튼이 활성화
-    function changeButton() {
-        email.includes('@') && password.length >= 5 ? setButton(false) :setButton(true);
+    const navigate = useNavigate();
+    const goToSignup = () =>{
+        navigate('/registerPage');
     }
 
-    // 로그인 성공 시 메인화면 이동
-    const goToMain = () => {
-        navigate('/');
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [inputId, setInputId] = useState("");
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [inputPw, setInputPw] = useState("");
+
+    const handleInputId = (e) => {
+        setInputId(e.target.value);
     };
 
-    // 로그인을 위한 변수 선언
-    let realId = "jsy@naver.com";
-    let realPw = "20203115";
-
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-        // 로그인 처리 로직 구현
-        console.log('Email:', email);
-        console.log('Password:', password);
-        // 여기서 실제 로그인 처리
+    const handleInputPw = (e) => {
+        setInputPw(e.target.value);
     };
+
+    // login 버튼 클릭 이벤트
+    const onClickLogin = () => {
+        console.log("click login");
+        console.log("ID : ", inputId);
+        console.log("PW : ", inputPw);
+        // 서버주소 입력
+        const API = "<http://localhost:5000/loginPage>";
+        axios(API, {
+            email: inputId,
+            passwd: inputPw,
+        })
+            .then((res) => {
+                console.log(res);
+                console.log("res.data.userId :: ", res.data.userId);
+                console.log("res.data.msg :: ", res.data.msg);
+                if (res.data.email === undefined) {
+                    // id 일치하지 않는 경우 userId = undefined
+                    console.log("======================", res.data.msg);
+                    alert("입력하신 id가 일치하지 않습니다.");
+                } else if (res.data.email === null) {
+                    // id는 있지만, pw 는 다른 경우 userId = null
+                    console.log(
+                        "======================",
+                        "입력하신 비밀번호가 일치하지 않습니다."
+                    );
+                    alert("입력하신 비밀번호가 일치하지 않습니다.");
+                } else if (res.data.email === inputId) {
+                    // id, pw 모두 일치 userId = userId1, 로그인 성공 시 sessionStorage에 Item으로 닉네임(name) 입력
+                    console.log("======================", "로그인 성공");
+                    sessionStorage.setItem("user_id", inputId); // sessionStorage에 id를 user_id라는 key 값으로 저장
+                    sessionStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
+                }
+                // 작업완료시 메인화면 이동
+                document.location.href = "/";
+            })
+            .catch();
+    }
+
 
     return (
 
         <div className="form_style">
             <h2 style={{textAlign:"center"}}>로그인</h2>
-            <form onSubmit={handleFormSubmit}>
+            <form>
                 <div>
-                    <label>ID </label>
-                    <input type="email"
-                           className="form-control"
-                           placeholder="Enter ID"
-                           name="email"
-                           value={email}
-                           onKeyUp={changeButton}
-                           onChange={e => {
-                               setEmail(e.target.value);
-                           }}
+                    <label htmlFor='input_id'>ID </label>
+                    <input type="id"
+                           className="input_id"
+                           placeholder="아이디"
+                           value={inputId}
+                           onChange={handleInputId}
                     />
                 </div>
                 <div>
-                    <label>PW </label>
+                    <label htmlFor='input_pw'>PW </label>
                     <input type="password"
-                           className="form-control"
-                           placeholder="Enter a password of at least 5 characters"
-                           name="pw"
-                           value={password}
-                           onKeyUp={changeButton}
-                           onChange={e => {
-                               setPassword(e.target.value);
-                           }}
+                           className="input_pw"
+                           placeholder="비밀번호"
+                           value={inputPw}
+                           onChange={handleInputPw}
                     />
                 </div>
                 <br />
-                <button type="botton" className="Button" disabled={button} style={{ display: 'flex', justifyContent: 'center' }}
-                        onClick={e => {
-                            if (realId == email) {
-                                if (realPw == password) {
-                                    e.stopPropagation();
-                                    goToMain();
-                                    alert('반갑습니다!');
-                                }
-                            } else {
-                                alert('아이디 혹은 비밀번호가 일치하지 않습니다.');
-                            }
-                        }}>로그인</button>
-                <button className="Button" type="submit" onClick={() => {navigate("/registerPage")}} style={{ display: 'flex', justifyContent: 'center' }}>회원가입</button>
+                <button type="button" onClick={onClickLogin}>로그인</button>
+                <button className="Button" type="submit" onClick={goToSignup}>회원가입</button>
             </form>
         </div>
     );

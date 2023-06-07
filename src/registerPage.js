@@ -1,6 +1,29 @@
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
+import axios from 'axios';
 
 const registerPage = () => {
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1);
+    };
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [name, setName] = useState("");
+    const [inputId, setInputId] = useState("");
+    const [inputPw, setInputPw] = useState("");
+
+    const handleInputId = (e) => {
+        setInputId(e.target.value);
+    };
+
+    const handleInputPw = (e) => {
+        setInputPw(e.target.value);
+    };
+
+
 
     return (
         <div style={{backgroundPosition : 'center'}}>
@@ -11,6 +34,7 @@ const registerPage = () => {
                     <input
                         type="text"
                         id="username"
+                        value={name}
                         placeholder="Enter name"
                     />
                 </div>
@@ -46,7 +70,7 @@ const registerPage = () => {
                         placeholder="Enter email"
                     />
                 </div>
-                <button type="submit">취소</button>
+                <button onClick={goBack}>취소</button>
                 <button type="submit">회원가입</button>
             </form>
         </div>
