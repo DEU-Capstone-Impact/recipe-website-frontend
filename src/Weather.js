@@ -1,10 +1,11 @@
 import React from 'react';
+import WeatherAPI from "./weather/WeatherAPI";
 
 function Weather(props) {
   return (
     <table>
       <tr>
-        <td rowspan="2"><a href="#"><img src="weather.jpg" alt="Weather" /></a></td>
+        <td rowspan="2"><WeatherAPI /></td>
         <td><a href="#"><img src="korea.jpg" alt="Korea" /></a></td>
         <td><a href="#"><img src="china.jpg" alt="China" /></a></td>
       </tr>
