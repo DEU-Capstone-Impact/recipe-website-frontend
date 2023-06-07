@@ -7,6 +7,7 @@ import RecipeKorea from './Rpkorea';
 import RecipeChina from './Rpchina';
 import RecipeJapan from './Rpjapan';
 import RecipeWestern from './Rpwestern';
+import RecipeChoice from './Recipe_choice';
 import NotFound from './NotFound';
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Rpkorea" element={<RecipeKorea />} />
           <Route path="/Rpchina" element={<RecipeChina />} />
           <Route path="/Rpjapan" element={<RecipeJapan />} />
+          <Route path="/Rpwestern" element={<RecipeWestern />} />
           <Route path="/Rpwestern" element={<RecipeWestern />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

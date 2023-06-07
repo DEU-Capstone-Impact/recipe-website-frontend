@@ -113,15 +113,6 @@ function Ranking_recipe() {
       if (index >= recipes.length) break;
       const recipe = recipes[index];
       const cellClasses = ['recipe-cell'];
-      
-      // 1등, 2등, 3등에 해당하는 요소에 클래스 추가
-      if (index === 0) {
-        cellClasses.push('recipe-cell-first');
-      } else if (index === 1) {
-        cellClasses.push('recipe-cell-second');
-      } else if (index === 2) {
-        cellClasses.push('recipe-cell-third');
-      }
 
       const cell = (
         <div className={cellClasses.join(' ')} key={index}>
@@ -141,7 +132,31 @@ function Ranking_recipe() {
 
   return (
     <div>
-      <div className="recipe-grid">{recipeCells}</div>
+      <div className="recipe-category">중식</div>
+      <div className="recipe-grid">
+        {recipes.map((recipe, index) => {
+          const ingredientsArray = recipe.ingredients.split(', ');
+          let ingredientsText = ingredientsArray.slice(0, 5).join(', ');
+          if (ingredientsArray.length > 5) {
+            ingredientsText += ' ...';
+          }
+
+          return (
+            <div className={`recipe-cell recipe-cell-${index}`} key={index}>
+              <Link to={`/recipe-choice/${index}`} className="recipe-link">
+                <div className="recipe-image-container">
+                  <img src={recipe.img} alt={recipe.name} className="recipe-image" />
+                </div>
+                <div className="recipe-details">
+                  <div className="recipe-name">요리: {recipe.name}</div>
+                  <div className="recipe-ingredients">재료: {ingredientsText}</div>
+                  <div className="recipe-time">시간: {recipe.time}</div>
+                </div>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
