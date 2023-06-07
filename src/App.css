@@ -1,0 +1,203 @@
+body{
+  background:gray;
+}
+
+.logo {
+  margin: 0;
+  font-size: 2rem;
+  color: white;
+  position: sticky;
+  background-color: rgba(0, 0, 0, 0.342);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+}
+
+.topmenu{
+  font-size: 1.5rem;
+  text-decoration: none;
+  margin-right:50px;
+  color:black;
+  cursor:pointer;
+}
+
+.my-page {
+  margin-left: 50px; /* 마이페이지와 다른 요소 간격을 설정 */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left:auto;
+}
+
+.nav-links li {
+  margin: 0 20px;
+}
+
+.nav-links li:not(:last-child) {
+  margin-right: 50px;
+}
+
+.category-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  list-style: none;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
+}
+
+.category-menu li {
+  margin-bottom: 5px;
+  width: 100%; /* 메뉴 항목 너비 조정 */
+}
+
+.category-menu li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease; /* 배경색 변경 애니메이션 효과 추가 */
+}
+
+.category-menu li a:hover {
+  background-color: #b8b2b2; /* 마우스 호버 시 배경색 변경 */
+}
+
+
+
+
+
+
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid #444444;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+td {
+  width: calc(100% / 3);
+  height: 33.3%;
+  padding: 10px;
+}
+
+th, td{
+  border: 1px solid #444444;
+}
+
+img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+td:first-child {
+width: 100%;
+height: 100%;
+padding: 10px;
+}
+
+td:not(:first-child) {
+width: 20%;
+height: 30%;
+padding: 10px;
+}
+
+
+
+.searchArea{
+  width:700px;
+  height:70px;
+  background: rgba(0, 0, 0, 0.342);
+  margin:auto;
+  border-radius:5px;
+  margin-top:40px;
+  padding: 10px;
+  box-sizing: border-box;
+  width: calc(100%-100px);
+}
+
+.searchArea input{
+  border:none;
+  width:600px;
+  height:50px;
+  background: #fff;
+  color:rgb(19, 18, 18);
+  padding-left:10%;
+}
+
+.searchArea input[type="search"]{
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.btn_search{
+  width: 60px;
+  height: 50px;
+  color:rgba(0, 0, 0, 0.342);
+  font-weight:bold;
+  cursor:pointer;
+}
+
+
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pop {
+  width: 30%;
+  margin: 50px;
+}
+
+.footer-table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 50%;
+  margin: 200px;
+}
+
+.footer-table td, .footer-table th {
+  border: 1px solid #ddd;
+  padding: 70px;
+  text-align: center;
+  width: 50%;
+}
+
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.search-button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
