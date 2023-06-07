@@ -7,6 +7,7 @@ import RecipeKorea from './Rpkorea';
 import RecipeChina from './Rpchina';
 import RecipeJapan from './Rpjapan';
 import RecipeWestern from './Rpwestern';
+import RecipeChoice from './Recipe_choice';
 import NotFound from './NotFound';
 import './App.css';
 import DeleteUser from "./deleteUser";

@@ -113,14 +113,14 @@ function WeatherAPI({ }) {
 
     return (
         <div>
-            <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
+              <div className="container" style={{ display: 'flex', justifyContent: 'flex-start', marginLeft: '200px' }}>
                 <div className="weather-box" style={{ fontWeight: 'bold' }}>
-                    <div>{todayData()} </div>
-                    <div>{weather && weather.name}</div>
-                    <div>
-                        {weatherIcon && <img src={weatherIcon} alt="Weather Icon" />}
-                    </div>
-                    <h3>{weather?.main.temp}℃ {weather && getWeatherStatus()}</h3>
+                    <div style={{ fontSize: '2rem' }}>{todayData()}</div>
+                    <div style={{ fontSize: '2rem' }}>{weather && weather.name}</div>
+                    <div style={{ textAlign: 'left', marginLeft: '200px' }}>
+                        {weatherIcon && <img src={weatherIcon} alt="Weather Icon" style={{ width: '20rem', height: '20rem' }} />}
+                </div>
+                <h3>{weather?.main.temp}℃ {weather && getWeatherStatus()}</h3>
                 </div>
             </div>
         </div>

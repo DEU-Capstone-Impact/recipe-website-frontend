@@ -1,5 +1,5 @@
 import React from 'react';
-import WeatherAPI from "./weather/WeatherAPI";
+import WeatherAPI from './weather/WeatherAPI';
 
 function Weather(props) {
   return (
