@@ -56,7 +56,7 @@ function Header(props) {
             )}
           </li>
 
-          <Link className='topmenu' to="#">레시피업로드</Link>
+          <Link className='topmenu' to="/recipeUpload">레시피업로드</Link>
           <form className="search-form" onSubmit={handleSearchSubmit}>
             <input
               className="search-input"
@@ -67,7 +67,7 @@ function Header(props) {
             />
             <button className="search-button" type="submit">검색</button>
           </form>
-          <Link className='topmenu my-page' to="#">마이페이지</Link>
+          <Link className='topmenu my-page' to="/mypage">마이페이지</Link>
           <Link className='topmenu' to="#">로그아웃</Link>
         </ul>
       </div>
