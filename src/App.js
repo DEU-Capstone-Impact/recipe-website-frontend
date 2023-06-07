@@ -10,6 +10,14 @@ import RecipeWestern from './Rpwestern';
 import RecipeChoice from './Recipe_choice';
 import NotFound from './NotFound';
 import './App.css';
+import DeleteUser from "./deleteUser";
+import LoginPage from "./loginPage";
+import Mypage from "./mypage";
+import MypageUpdate from "./mypageUpdate";
+import RecipeUpdate from "./recipeUpdate";
+import RecipeUpload from "./recipeUpload";
+import RecipeView from "./recipeView";
+import RegisterPage from "./registerPage";
 
 function App() {
   return (
@@ -24,13 +32,22 @@ function App() {
           <Route path="/Rpchina" element={<RecipeChina />} />
           <Route path="/Rpjapan" element={<RecipeJapan />} />
           <Route path="/Rpwestern" element={<RecipeWestern />} />
-          <Route path="/Rpwestern" element={<RecipeWestern />} />
+          <Route path="/deleteUser" element={<DeleteUser />} />
+          <Route path="/loginPage" element={<LoginPage />} />
+          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/mypageUpdate" element={<MypageUpdate />} />
+          <Route path="/recipeUpdate" element={<RecipeUpdate />} />
+          <Route path="/recipeUpload" element={<RecipeUpload />} />
+          <Route path="/recipeView" element={<RecipeView />} />
+          <Route path="/registerPage" element={<RegisterPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
   );
 }
+
+// djfkl
 
 function ScrollToTop() {
   const { pathname } = useLocation();
